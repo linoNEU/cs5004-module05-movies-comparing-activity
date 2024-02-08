@@ -5,19 +5,19 @@ import java.util.List;
 import movies.Movie;
 import movies.MovieImpl;
 import movies.Person;
-import movies.SortMoviesByTitle;
+import movies.CompareMoviesByTitle;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * A JUnit test class for the SortMoviesByTitle class.
+ * A JUnit test class for the CompareMoviesByTitle class.
  */
-public class SortMoviesByTitleTest {
+public class CompareMoviesByTitleTest {
 
   private Movie movie1;
   private Movie movie2;
   private Movie movie3;
-  private SortMoviesByTitle sortMoviesByTitle;
+  private CompareMoviesByTitle compareMoviesByTitle;
 
   /**
    * Set up movies to use for our tests.
@@ -26,7 +26,7 @@ public class SortMoviesByTitleTest {
     movie1 = new MovieImpl("The Godfather", new Person("Francis", "Ford Coppola"), 1972);
     movie2 = new MovieImpl("Pulp Fiction", new Person("Quentin", "Tarantino"), 1994);
     movie3 = new MovieImpl("Fight Club", new Person("David", "Fincher"), 1999);
-    sortMoviesByTitle = new SortMoviesByTitle();
+    compareMoviesByTitle = new CompareMoviesByTitle();
   }
 
   /**
@@ -34,7 +34,7 @@ public class SortMoviesByTitleTest {
    */
   @Test public void testSortMoviesByTitle() {
     List<Movie> movies = Arrays.asList(movie1, movie2, movie3);
-    movies.sort(sortMoviesByTitle);
+    movies.sort(compareMoviesByTitle);
 
     assertEquals(movie3, movies.get(0));
     assertEquals(movie2, movies.get(1));
@@ -47,7 +47,7 @@ public class SortMoviesByTitleTest {
   @Test public void testSortMoviesWithSameTitle() {
     Movie movie4 = new MovieImpl("The Godfather", new Person("Martin", "Scorsese"), 1980);
     List<Movie> movies = Arrays.asList(movie1, movie4);
-    movies.sort(sortMoviesByTitle);
+    movies.sort(compareMoviesByTitle);
 
     assertEquals(movie1, movies.get(0));
     assertEquals(movie4, movies.get(1));
@@ -58,7 +58,7 @@ public class SortMoviesByTitleTest {
    */
   @Test public void testSortEmptyMoviesList() {
     List<Movie> movies = Arrays.asList();
-    movies.sort(sortMoviesByTitle);
+    movies.sort(compareMoviesByTitle);
 
     assertEquals(0, movies.size());
   }

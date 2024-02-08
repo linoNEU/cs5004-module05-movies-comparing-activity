@@ -5,10 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import movies.CompareMoviesByTitle;
 import movies.Movie;
 import movies.MovieImpl;
 import movies.Person;
-import movies.SortMoviesByTitle;
 
 /**
  * Read movies from a CSV file, convert them into Movie objects, and then add them to a LinkedList.
@@ -61,13 +61,13 @@ public class Main {
     movieList.stream().sorted().forEach(System.out::println);
 
     // Print the list of movies sorted by title.
-    // We're using the SortMoviesByTitle class.
+    // We're using the CompareMoviesByTitle class.
     System.out.println("\nList of movies sorted by title:");
-    movieList.sort(new SortMoviesByTitle());
+    movieList.sort(new CompareMoviesByTitle());
     movieList.forEach(System.out::println);
 
     // Print the list of movies sorted by director.
-    // We're using the SortMoviesByDirector class.
+    // We're using the CompareMoviesByDirector class.
     System.out.println("\nList of movies sorted by director:");
     // TODO: Sort the movieList by director
 
